@@ -2,7 +2,6 @@ package startup;
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLContext;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.glu.GLU;
@@ -38,7 +37,6 @@ public class Startup {
                     public void init(GLAutoDrawable var1) {
                         GL2 var2 = var1.getGL().getGL2();
                         gl2 = var2;
-                        GLContext var3 = var1.getContext();
                         var2.glClearColor(0.43820223F, 0.43820223F, 1.0F, 1.0F);
                         var2.glEnable(2929);
                         var2.glFrontFace(2305);
@@ -52,12 +50,12 @@ public class Startup {
                         var2.glFogf(2915, 25.0F);
                         var2.glFogf(2916, 100.0F);
                         var2.glEnable(2912);
-                        ((h.A) h.B.B.A("marble", new h.A(var3))).A(new C(new l.A(2.0D, 4.0D, 12.0D, 0.75D, 0.25D), new l.b.B(5.0D)),
+                        ((h.A) h.B.B.A("marble", new h.A())).A(new C(new l.A(2.0D, 4.0D, 12.0D, 0.75D, 0.25D), new l.b.B(5.0D)),
                                 512, 512);
-                        ((h.A) h.B.B.A("charset", new h.A(var3))).A("/charset.png", "png");
-                        ((h.A) h.B.B.A("border", new h.A(var3))).A(new l.A(2.0D, 16.0D, 48.0D, 1.0D, 0.5D), 512, 512);
-                        ((E) h.B.A.A("border bottom", new E(var3))).A(new f.B(20.0F, 72, 2.0F, 0.0D, 6.283185307179586D, 64));
-                        ((E) h.B.A.A("border side", new E(var3))).A((new f.B(24.0F, 96, 2.0F, 0.0D, 6.283185307179586D, 64)).E());
+                        ((h.A) h.B.B.A("charset", new h.A())).A("/charset.png", "png");
+                        ((h.A) h.B.B.A("border", new h.A())).A(new l.A(2.0D, 16.0D, 48.0D, 1.0D, 0.5D), 512, 512);
+                        ((E) h.B.A.A("border bottom", new E())).A(new f.B(20.0F, 72, 2.0F, 0.0D, 6.283185307179586D, 64));
+                        ((E) h.B.A.A("border side", new E())).A((new f.B(24.0F, 96, 2.0F, 0.0D, 6.283185307179586D, 64)).E());
                         float var5 = 0.33333334F;
                         byte var6 = 8;
                         float var8 = -0.5F + var5;
@@ -163,7 +161,7 @@ public class Startup {
                         });
                         var30.start();
 
-                        ((E) h.B.A.A("monster", new E(var3))).A(new f.D(var16, var17));
+                        ((E) h.B.A.A("monster", new E())).A(new f.D(var16, var17));
                         gl2 = null;
                     }
 

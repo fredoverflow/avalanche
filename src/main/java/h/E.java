@@ -1,26 +1,23 @@
 package h;
 
-import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GLContext;
+import startup.Startup;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
 public class E implements C {
-    private final GLContext E;
     private final int[] C = new int[2];
     private int F;
     private int[] G;
     private int[] D;
 
-    public E(GLContext var1) {
-        this.E = var1;
-        var1.getGL().glGenBuffers(2, this.C, 0);
+    public E() {
+        Startup.gl2.glGenBuffers(2, this.C, 0);
     }
 
     public void A(f.D var1) {
-        GL var2 = this.E.getGL();
+        GL2 var2 = Startup.gl2;
         this.G = var1.D();
         this.D = var1.N();
         var2.glBindBuffer(34962, this.C[0]);
@@ -35,7 +32,7 @@ public class E implements C {
     }
 
     public void C() {
-        GL2 var1 = this.E.getGL().getGL2();
+        GL2 var1 = Startup.gl2;
         var1.glBindBuffer(34962, this.C[0]);
         var1.glBindBuffer(34963, this.C[1]);
         var1.glEnableClientState(32884);
@@ -45,15 +42,15 @@ public class E implements C {
     }
 
     public void D() {
-        this.E.getGL().glDrawElements(4, this.F, 5125, 0L);
+        Startup.gl2.glDrawElements(4, this.F, 5125, 0L);
     }
 
     public void A(int var1) {
-        this.E.getGL().glDrawElements(4, this.D[var1], 5125, (long) (this.G[var1] * 4));
+        Startup.gl2.glDrawElements(4, this.D[var1], 5125, (long) (this.G[var1] * 4));
     }
 
     public void B() {
-        GL2 var1 = this.E.getGL().getGL2();
+        GL2 var1 = Startup.gl2;
         var1.glDisableClientState(32885);
         var1.glDisableClientState(32884);
         var1.glBindBuffer(34963, 0);
@@ -61,6 +58,6 @@ public class E implements C {
     }
 
     public void A() {
-        this.E.getGL().glDeleteBuffers(2, this.C, 0);
+        Startup.gl2.glDeleteBuffers(2, this.C, 0);
     }
 }

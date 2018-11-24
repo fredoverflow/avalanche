@@ -1,24 +1,22 @@
 package h;
 
 import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GLContext;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.glu.gl2.GLUgl2;
 import com.jogamp.opengl.util.texture.TextureData;
 import com.jogamp.opengl.util.texture.TextureIO;
+import startup.Startup;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
 public class A implements C {
-    private final GLContext I;
     private int[] H;
     private static int[] J = new int[]{0, 6409, 2, 6407, 4};
 
-    public A(GLContext var1) {
-        this.I = var1;
+    public A() {
         this.H = new int[1];
-        GL2 var2 = var1.getGL().getGL2();
+        GL2 var2 = Startup.gl2;
         var2.glGenTextures(1, this.H, 0);
         this.E();
         var2.glTexEnvf(8960, 8704, 8448.0F);
@@ -30,7 +28,7 @@ public class A implements C {
     }
 
     public void E() {
-        this.I.getGL().glBindTexture(3553, this.H[0]);
+        Startup.gl2.glBindTexture(3553, this.H[0]);
     }
 
     public void A(byte[] var1, int var2, int var3, int var4) {
@@ -77,6 +75,6 @@ public class A implements C {
     }
 
     public void A() {
-        this.I.getGL().glDeleteTextures(1, this.H, 0);
+        Startup.gl2.glDeleteTextures(1, this.H, 0);
     }
 }
