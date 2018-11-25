@@ -11,6 +11,7 @@ import geometry.Geometry;
 import geometry.SphereOctant;
 import geometry.Square;
 import h.E;
+import h.Text;
 import k.Viewport;
 import l.b.C;
 
@@ -61,12 +62,12 @@ public class Startup {
                         gl2.glFogf(GL_FOG_END, 100.0F);
                         gl2.glEnable(GL_FOG);
 
-                        h.B.B.A("marble", new h.A()).A(new C(new l.A(2.0, 4.0, 12.0, 0.75, 0.25), new l.b.B(5.0)),
+                        Text.B.A("marble", new h.A()).A(new C(new l.A(2.0, 4.0, 12.0, 0.75, 0.25), new l.b.B(5.0)),
                                 512, 512);
-                        h.B.B.A("charset", new h.A()).A("/charset.png", "png");
-                        h.B.B.A("border", new h.A()).A(new l.A(2.0, 16.0, 48.0, 1.0, 0.5), 512, 512);
-                        h.B.A.A("border bottom", new E()).A(new Cylinder(20.0F, 72, 2.0F, 0.0, _360, 64));
-                        h.B.A.A("border side", new E()).A((new Cylinder(24.0F, 96, 2.0F, 0.0, _360, 64)).rotateZ90());
+                        Text.B.A("charset", new h.A()).A("/charset.png", "png");
+                        Text.B.A("border", new h.A()).A(new l.A(2.0, 16.0, 48.0, 1.0, 0.5), 512, 512);
+                        Text.A.A("border bottom", new E()).A(new Cylinder(20.0F, 72, 2.0F, 0.0, _360, 64));
+                        Text.A.A("border side", new E()).A((new Cylinder(24.0F, 96, 2.0F, 0.0, _360, 64)).rotateZ90());
 
                         float third = 0.33333334F;
                         byte eight = 8;
@@ -165,7 +166,7 @@ public class Startup {
                             System.arraycopy(var19, 0, var17[var18] = new int[var30], 0, var30);
                         }
 
-                        h.B.A.A("monster", new E()).A(new Geometry(maybeCube, var17));
+                        Text.A.A("monster", new E()).A(new Geometry(maybeCube, var17));
 
                         final Animator animator = new Animator(drawable);
                         frame.addWindowListener(new WindowAdapter() {

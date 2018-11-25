@@ -22,7 +22,7 @@ public class A implements KeyHandler {
             var2 = (KeyEvent) var1.next();
             switch (var2.getKeyCode()) {
                 case 10:
-                    this.Ý.confirm();
+                    this.Ý.select();
                     break;
                 case 38:
                     this.Ý.pickPreviousOption();

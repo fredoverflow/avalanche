@@ -124,7 +124,7 @@ public class E implements Iterable {
         }
 
         this.J.clear();
-        this.M.A((Object) null);
+        this.M.select((Object) null);
         this.B(this.K);
     }
 
@@ -203,7 +203,7 @@ public class E implements Iterable {
                                     }
 
                                     this.A(var13);
-                                    this.B.A((Object) var13);
+                                    this.B.select((Object) var13);
                                 }
 
                                 this.A(4, 4, var2, new o.A(var4), var7 == 0 ? 7 : 8);
@@ -280,7 +280,7 @@ public class E implements Iterable {
             if (var2 > 0) {
                 this.B();
                 this.A();
-                this.F.A((Object) var2);
+                this.F.select((Object) var2);
             }
         }
 
@@ -295,7 +295,7 @@ public class E implements Iterable {
             var5.add(var4);
             this.A(var4);
             this.A(var4, (var2 - var4.D()) / 256, var5);
-            this.D.A((Object) var5);
+            this.D.select((Object) var5);
         }
 
     }
@@ -350,7 +350,7 @@ public class E implements Iterable {
         M var6 = n.M.A(var1, var2, var5);
         J var7 = new J(var6, var3, var4);
         this.B(var7);
-        this.G.A((Object) var7);
+        this.G.select((Object) var7);
     }
 
     public J E() {
@@ -396,7 +396,7 @@ public class E implements Iterable {
             }
 
             if (var2) {
-                E.this.L.A((Object) var1);
+                E.this.L.select((Object) var1);
             }
 
         }

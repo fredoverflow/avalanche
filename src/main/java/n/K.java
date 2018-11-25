@@ -74,10 +74,10 @@ public class K implements Updateable {
 
     private void f() {
         if (!this.Ö.isEmpty()) {
-            this.Ø.A((Object) this.Ö);
+            this.Ø.select((Object) this.Ö);
             this.Ö.clear();
             if (this.Õ >= this.Û.length - 1) {
-                this.Ø.A((Object) null);
+                this.Ø.select((Object) null);
                 this.Õ = 0;
             }
         }

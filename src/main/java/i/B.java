@@ -29,7 +29,7 @@ public class B implements KeyHandler {
 
         this.A(27, new E(new e.C() {
             public void A() {
-                B.this.ã.e().A((Object) null);
+                B.this.ã.e().select((Object) null);
             }
         }));
         this.á = new LinkedList();

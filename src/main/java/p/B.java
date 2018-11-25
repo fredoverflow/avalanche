@@ -32,7 +32,7 @@ public class B implements A {
 
     }
 
-    public void A(Object var1) {
+    public void select(Object parameter) {
         if (this.A) {
             this.B = new ArrayList(this.C);
             this.A = false;
@@ -42,7 +42,7 @@ public class B implements A {
 
         while (var2.hasNext()) {
             C var3 = (C) var2.next();
-            var3.A(var1);
+            var3.A(parameter);
         }
 
     }

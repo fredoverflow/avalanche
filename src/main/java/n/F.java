@@ -152,7 +152,7 @@ public class F implements Updateable, Iterable {
         }
 
         public void A() {
-            F.this.ª.A((Object) F.this);
+            F.this.ª.select((Object) F.this);
         }
 
         // $FF: synthetic method
@@ -253,10 +253,10 @@ public class F implements Updateable, Iterable {
                     if (F.this.Ñ.D(F.this.Í)) {
                         F.this.Í.I();
                     } else {
-                        F.this.Ò.A((Object) F.this.Í);
+                        F.this.Ò.select((Object) F.this.Í);
                     }
                 } else {
-                    F.this.É.A((Object) F.this.Í);
+                    F.this.É.select((Object) F.this.Í);
                 }
             }
 
@@ -335,7 +335,7 @@ public class F implements Updateable, Iterable {
             if (F.this.Ñ.D(F.this.Í)) {
                 this.Q.C();
             } else {
-                this.Q.A().A((Object) F.this.Í);
+                this.Q.A().select((Object) F.this.Í);
                 F.this.£.A();
             }
 
@@ -405,7 +405,7 @@ public class F implements Updateable, Iterable {
                 F.this.Ñ.A(F.this.Í);
                 F.this.A(var2, false, new e.C() {
                     public void A() {
-                        F.this.Ï.A((Object) var1);
+                        F.this.Ï.select((Object) var1);
                     }
                 });
             }
@@ -424,7 +424,7 @@ public class F implements Updateable, Iterable {
 
         public void A() {
             F.this.º.C();
-            F.this.Ô.A((Object) F.this.Í);
+            F.this.Ô.select((Object) F.this.Í);
         }
 
         // $FF: synthetic method

@@ -2,6 +2,7 @@ package b;
 
 import com.jogamp.opengl.GL2;
 import g.Renderable;
+import h.Text;
 import startup.Startup;
 
 public class C implements Renderable {
@@ -43,7 +44,7 @@ public class C implements Renderable {
                 int var10 = this.C.A(var2 + 1, var4 - 1) ? 32 : 0;
                 int var11 = this.C.A(var2 - 1, var4 + 1) ? 64 : 0;
                 int var12 = this.C.A(var2 + 1, var4 + 1) ? 128 : 0;
-                h.E var13 = (h.E) h.B.A.B("monster");
+                h.E var13 = (h.E) Text.A.B("monster");
                 var1.glPushMatrix();
                 var1.glTranslatef((float) (this.C.A() + var2) + 0.5F, (float) var4 + 0.5F, 0.0F);
                 var1.glTexGenfv(8192, 9473, new float[]{0.125F, 0.0F, 0.0F, ((float) var2 + 0.5F) * 0.125F}, 0);

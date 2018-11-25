@@ -18,7 +18,7 @@ public class A implements C {
         this.H = new int[1];
         GL2 var2 = Startup.gl2;
         var2.glGenTextures(1, this.H, 0);
-        this.E();
+        this.bindTexture();
         var2.glTexEnvf(8960, 8704, 8448.0F);
         var2.glTexParameterf(3553, 10241, 9987.0F);
         var2.glTexParameterf(3553, 10240, 9729.0F);
@@ -27,12 +27,12 @@ public class A implements C {
         var2.glEnable(3553);
     }
 
-    public void E() {
+    public void bindTexture() {
         Startup.gl2.glBindTexture(3553, this.H[0]);
     }
 
     public void A(byte[] var1, int var2, int var3, int var4) {
-        this.E();
+        this.bindTexture();
         (new GLUgl2()).gluBuild2DMipmaps(3553, var4, var2, var3, J[var4], 5121, ByteBuffer.wrap(var1));
     }
 
@@ -41,7 +41,7 @@ public class A implements C {
             GLProfile profile = GLProfile.getDefault();
             TextureData var3 = TextureIO.newTextureData(profile, getClass().getResourceAsStream(var1), false, var2);
             System.out.println(var3.getPixelType());
-            this.E();
+            this.bindTexture();
             (new GLUgl2()).gluBuild2DMipmaps(3553, 2, var3.getWidth(), var3.getHeight(), var3.getPixelFormat(), var3.getPixelType(), var3.getBuffer());
         } catch (IOException var4) {
             var4.printStackTrace();

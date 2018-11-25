@@ -3,6 +3,7 @@ package d;
 import com.jogamp.opengl.GL2;
 import g.Renderable;
 import g.Updateable;
+import h.Text;
 import startup.Startup;
 
 public class Menu implements Renderable, Updateable {
@@ -28,24 +29,24 @@ public class Menu implements Renderable, Updateable {
         this.choice = Math.min(this.choice + 1, this.options.length - 1);
     }
 
-    public void confirm() {
-        this.options[this.choice].A((Object) null);
+    public void select() {
+        this.options[this.choice].select(null);
     }
 
     public void render() {
-        GL2 var1 = Startup.gl2;
-        var1.glColor3fv(this.normalColor, 0);
-        h.B.A(this.title, 0.0F, 10.0F, 0.0F, 1.5F, 0.5F);
+        GL2 gl2 = Startup.gl2;
+        gl2.glColor3fv(this.normalColor, 0);
+        Text.draw(this.title, 0.0F, 10.0F, 0.0F, 1.5F, Text.ALIGN_CENTER);
         float var2 = (float) (this.options.length - 2);
 
         for (int var3 = 0; var3 < this.options.length; ++var3) {
             if (var3 == this.choice) {
-                var1.glColor3fv(this.selectedColor, 0);
+                gl2.glColor3fv(this.selectedColor, 0);
             }
 
             this.options[var3].render(var2);
             if (var3 == this.choice) {
-                var1.glColor3fv(this.normalColor, 0);
+                gl2.glColor3fv(this.normalColor, 0);
             }
 
             var2 -= 2.0F;

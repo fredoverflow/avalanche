@@ -33,7 +33,7 @@ public class I implements Iterable {
     public D C() {
         this.B();
         D var1 = (D) this.A.poll();
-        this.B.A(this.A.getLast());
+        this.B.select(this.A.getLast());
         return var1;
     }
 

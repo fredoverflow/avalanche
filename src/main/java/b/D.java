@@ -72,7 +72,7 @@ public class D implements Renderable {
         public void A(n.D var1) {
             D.this.B(var1);
             D.this.F = new c.A(j.A.B(-4), -10.0F, 0.0F);
-            D.this.H.A(D.this.G.poll());
+            D.this.H.select(D.this.G.poll());
         }
 
         // $FF: synthetic method

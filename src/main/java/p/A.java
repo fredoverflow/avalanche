@@ -5,5 +5,5 @@ public interface A {
 
     void A(C var1);
 
-    void A(Object var1);
+    void select(Object parameter);
 }

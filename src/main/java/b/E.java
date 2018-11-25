@@ -2,6 +2,7 @@ package b;
 
 import com.jogamp.opengl.GL2;
 import g.Renderable;
+import h.Text;
 import n.J;
 import startup.Startup;
 
@@ -70,8 +71,8 @@ public class E implements Renderable {
         var1.glRotatef(0.0F, 0.0F, 1.0F, 0.0F);
         var1.glTranslatef(-var3, -var4, 0.0F);
         var1.glColor4f(0.43820223F, 0.43820223F, 1.0F, 1.0F);
-        ((h.A) h.B.B.B("border")).E();
-        h.E var5 = (h.E) h.B.A.B("border side");
+        ((h.A) Text.B.B("border")).bindTexture();
+        h.E var5 = (h.E) Text.A.B("border side");
         var5.C();
         var1.glPushMatrix();
         var1.glTranslatef(1.0F, 0.0F, 0.0F);
@@ -80,15 +81,15 @@ public class E implements Renderable {
         var5.D();
         var1.glPopMatrix();
         var1.glPushMatrix();
-        var5 = (h.E) h.B.A.B("border bottom");
+        var5 = (h.E) Text.A.B("border bottom");
         var5.C();
         var1.glTranslatef(-1.0F, -2.0F, 0.0F);
         var1.glRotatef(-45.0F, 1.0F, 0.0F, 0.0F);
         var5.D();
         var5.B();
         var1.glPopMatrix();
-        ((h.A) h.B.B.B("marble")).E();
-        ((h.E) h.B.A.B("monster")).C();
+        ((h.A) Text.B.B("marble")).bindTexture();
+        ((h.E) Text.A.B("monster")).C();
         this.X.render();
         Iterator var6 = this.R.entrySet().iterator();
 
@@ -137,7 +138,7 @@ public class E implements Renderable {
         var1.glPopMatrix();
         this.N.update();
         this.N.render();
-        ((h.E) h.B.A.B("monster")).B();
+        ((h.E) Text.A.B("monster")).B();
         var1.glEnable(3553);
         var1.glDisable(3168);
         var1.glDisable(3169);
