@@ -32,7 +32,8 @@ public class A implements B {
         return 0;
     }
 
-    // Are B and C methods the same as in B interface?
+    // Are the above and below methods the same as in the implemented interface?
+
     public int C() {
         return this.R;
     }

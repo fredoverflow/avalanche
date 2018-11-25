@@ -1,11 +1,10 @@
 package startup;
 
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLEventListener;
+import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.Animator;
+import f.Geometry;
 import h.E;
 import l.b.C;
 
@@ -18,94 +17,102 @@ import java.util.Iterator;
 public class Startup {
     public static GL2 gl2;
 
-    private static final GLU C = new GLU();
-    private static final double B = 1.5707963267948966D;
-    private static final double A = 32.0D;
+    private static final double _180 = Math.PI;
+    private static final double _360 = _180 * 2;
+    private static final double _90 = _180 / 2;
 
-    public static void main(String[] var0) {
+    private static final double A = 32.0;
+
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 Frame frame = new Frame();
-                frame.setSize(1024, 768);
-                frame.setVisible(true);
 
                 a.B D = new a.B();
 
                 GLEventListener glEventListener = new GLEventListener() {
                     @Override
-                    public void init(GLAutoDrawable var1) {
-                        GL2 var2 = var1.getGL().getGL2();
-                        gl2 = var2;
-                        var2.glClearColor(0.43820223F, 0.43820223F, 1.0F, 1.0F);
-                        var2.glEnable(2929);
-                        var2.glFrontFace(2305);
-                        var2.glCullFace(1029);
-                        var2.glEnable(2884);
-                        float[] var4 = new float[]{0.43820223F, 0.43820223F, 1.0F, 1.0F};
-                        var2.glFogi(2917, 9729);
-                        var2.glFogfv(2918, var4, 0);
-                        var2.glFogf(2914, 0.35F);
-                        var2.glHint(3156, 4352);
-                        var2.glFogf(2915, 25.0F);
-                        var2.glFogf(2916, 100.0F);
-                        var2.glEnable(2912);
-                        ((h.A) h.B.B.A("marble", new h.A())).A(new C(new l.A(2.0D, 4.0D, 12.0D, 0.75D, 0.25D), new l.b.B(5.0D)),
+                    public void init(GLAutoDrawable drawable) {
+                        GL2 gl2 = drawable.getGL().getGL2();
+                        Startup.gl2 = gl2;
+
+                        gl2.glClearColor(0.43820223F, 0.43820223F, 1.0F, 1.0F);
+                        gl2.glEnable(GL.GL_DEPTH_TEST);
+                        gl2.glFrontFace(GL.GL_CCW);
+                        gl2.glCullFace(GL.GL_BACK);
+                        gl2.glEnable(GL.GL_CULL_FACE);
+
+                        gl2.glFogi(GL2ES1.GL_FOG_MODE, GL.GL_LINEAR);
+                        gl2.glFogfv(GL2ES1.GL_FOG_COLOR, new float[]{0.43820223F, 0.43820223F, 1.0F, 1.0F}, 0);
+                        gl2.glFogf(GL2ES1.GL_FOG_DENSITY, 0.35F);
+                        gl2.glHint(GL2ES1.GL_FOG_HINT, GL.GL_DONT_CARE);
+                        gl2.glFogf(GL2ES1.GL_FOG_START, 25.0F);
+                        gl2.glFogf(GL2ES1.GL_FOG_END, 100.0F);
+                        gl2.glEnable(GL2ES1.GL_FOG);
+
+                        h.B.B.A("marble", new h.A()).A(new C(new l.A(2.0, 4.0, 12.0, 0.75, 0.25), new l.b.B(5.0)),
                                 512, 512);
-                        ((h.A) h.B.B.A("charset", new h.A())).A("/charset.png", "png");
-                        ((h.A) h.B.B.A("border", new h.A())).A(new l.A(2.0D, 16.0D, 48.0D, 1.0D, 0.5D), 512, 512);
-                        ((E) h.B.A.A("border bottom", new E())).A(new f.B(20.0F, 72, 2.0F, 0.0D, 6.283185307179586D, 64));
-                        ((E) h.B.A.A("border side", new E())).A((new f.B(24.0F, 96, 2.0F, 0.0D, 6.283185307179586D, 64)).E());
-                        float var5 = 0.33333334F;
-                        byte var6 = 8;
-                        float var8 = -0.5F + var5;
-                        float var10 = 0.5F - var5;
-                        float var11 = var10 - var8;
-                        f.C var12 = new f.C(var8, var8, var10, var10, 0.5F);
-                        f.D[][] var13 = new f.D[4][2];
-                        var13[2][0] = new f.C(var8, -0.5F, var10, var8, 0.5F);
-                        var13[2][0] = new f.D(new f.D[]{(new f.D(var13[2][0])).G(), var13[2][0]});
-                        var13[2][1] = (new f.B(var11, 1, var5, -1.5707963267948966D, 0.0D, var6)).A(var8, var8, var10);
-                        var13[2][1] = new f.D(new f.D[]{var13[2][1], (new f.D(new f.D[]{var12, var13[2][1]})).C()});
-                        var13[1][0] = (new f.D(var13[2][0])).E();
-                        var13[1][1] = (new f.D(var13[2][1])).E();
-                        var13[3][0] = (new f.D(var13[1][0])).E();
-                        var13[3][1] = (new f.D(var13[1][1])).E();
-                        var13[0][0] = (new f.D(var13[3][0])).E();
-                        var13[0][1] = (new f.D(var13[3][1])).E();
-                        f.D var29 = new f.D(new f.D[]{var12, (new f.D(var12)).G()});
-                        f.D[][] var14 = new f.D[4][4];
-                        var14[3][0] = new f.D(
-                                new f.D[]{new f.C(var10, var10, 0.5F, 0.5F, 0.5F), (new f.C(-0.5F, var10, var8, 0.5F, 0.5F)).G()});
-                        f.B var15 = new f.B(var5, 1, var5, 0.0D, 1.5707963267948966D, var6);
-                        var14[3][1] = (new f.D(var15)).A(var10, var10, var10);
-                        var14[3][1] = new f.D(new f.D[]{var14[3][1],
-                                (new f.D(new f.D[]{new f.C(var10, var8, 0.5F, var10, 0.5F), var14[3][1]})).O()});
-                        var14[3][2] = (new f.D(var15)).B().A(var10, 0.5F, var10);
-                        var14[3][2] = new f.D(new f.D[]{var14[3][2],
-                                (new f.D(new f.D[]{new f.C(var8, var10, var10, 0.5F, 0.5F), var14[3][2]})).H()});
-                        var14[3][3] = (new f.A(var5, var6)).A(var10, var10, var10);
-                        var14[3][3] = new f.D(
-                                new f.D[]{var14[3][3],
-                                        (new f.D(new f.D[]{
-                                                (new f.B(var11, 1, var5, 0.0D, 1.5707963267948966D, var6)).A(var8, var10, var10),
-                                                var14[3][3]})).H()});
-                        var14[2][0] = (new f.D(var14[3][0])).G();
-                        var14[2][1] = (new f.D(var14[3][1])).G();
-                        var14[2][2] = (new f.D(var14[3][2])).G();
-                        var14[2][3] = (new f.D(var14[3][3])).G();
-                        var14[0][0] = (new f.D(var14[2][0])).I();
-                        var14[0][1] = (new f.D(var14[2][1])).I();
-                        var14[0][2] = (new f.D(var14[2][2])).I();
-                        var14[0][3] = (new f.D(var14[2][3])).I();
-                        var14[1][0] = (new f.D(var14[0][0])).G();
-                        var14[1][1] = (new f.D(var14[0][1])).G();
-                        var14[1][2] = (new f.D(var14[0][2])).G();
-                        var14[1][3] = (new f.D(var14[0][3])).G();
-                        f.D var16 = new f.D(new f.D[]{var14[0][0], var14[0][1], var14[0][2], var14[0][3], var14[1][0], var14[1][1],
+                        h.B.B.A("charset", new h.A()).A("/charset.png", "png");
+                        h.B.B.A("border", new h.A()).A(new l.A(2.0, 16.0, 48.0, 1.0, 0.5), 512, 512);
+                        h.B.A.A("border bottom", new E()).A(new f.B(20.0F, 72, 2.0F, 0.0, _360, 64));
+                        h.B.A.A("border side", new E()).A((new f.B(24.0F, 96, 2.0F, 0.0, _360, 64)).rotateZ90());
+
+                        float third = 0.33333334F;
+                        byte eight = 8;
+                        float negSixth = third - 0.5F;
+                        float posSixth = 0.5F - third;
+                        // TODO thirdAgain probably has a different unit than third
+                        float thirdAgain = posSixth - negSixth;
+
+                        f.C oneSquare = new f.C(negSixth, negSixth, posSixth, posSixth, 0.5F);
+
+                        Geometry[][] var13 = new Geometry[4][2];
+                        var13[2][0] = new f.C(negSixth, -0.5F, posSixth, negSixth, 0.5F);
+                        var13[2][0] = new Geometry((new Geometry(var13[2][0])).rotateY180(), var13[2][0]);
+                        var13[2][1] = (new f.B(thirdAgain, 1, third, -_90, 0.0, eight)).translate(negSixth, negSixth, posSixth);
+                        var13[2][1] = new Geometry(var13[2][1], (new Geometry(oneSquare, var13[2][1])).rotateX90());
+                        var13[1][0] = (new Geometry(var13[2][0])).rotateZ90();
+                        var13[1][1] = (new Geometry(var13[2][1])).rotateZ90();
+                        var13[3][0] = (new Geometry(var13[1][0])).rotateZ90();
+                        var13[3][1] = (new Geometry(var13[1][1])).rotateZ90();
+                        var13[0][0] = (new Geometry(var13[3][0])).rotateZ90();
+                        var13[0][1] = (new Geometry(var13[3][1])).rotateZ90();
+
+                        Geometry twoSquares = new Geometry(oneSquare, (new Geometry(oneSquare)).rotateY180());
+
+                        Geometry[][] var14 = new Geometry[4][4];
+                        var14[3][0] = new Geometry(
+                                new f.C(posSixth, posSixth, 0.5F, 0.5F, 0.5F), (new f.C(-0.5F, posSixth, negSixth, 0.5F, 0.5F)).rotateY180());
+                        f.B var15 = new f.B(third, 1, third, 0.0, _90, eight);
+                        var14[3][1] = (new Geometry(var15)).translate(posSixth, posSixth, posSixth);
+                        var14[3][1] = new Geometry(var14[3][1],
+                                (new Geometry(new f.C(posSixth, negSixth, 0.5F, posSixth, 0.5F), var14[3][1])).rotateX270());
+                        var14[3][2] = (new Geometry(var15)).rotateZ270().translate(posSixth, 0.5F, posSixth);
+                        var14[3][2] = new Geometry(var14[3][2],
+                                (new Geometry(new f.C(negSixth, posSixth, posSixth, 0.5F, 0.5F), var14[3][2])).rotateY90());
+                        var14[3][3] = (new f.A(third, eight)).translate(posSixth, posSixth, posSixth);
+                        var14[3][3] = new Geometry(
+                                var14[3][3],
+                                (new Geometry((new f.B(thirdAgain, 1, third, 0.0, _90, eight)).translate(negSixth, posSixth, posSixth),
+                                        var14[3][3])).rotateY90());
+                        var14[2][0] = (new Geometry(var14[3][0])).rotateY180();
+                        var14[2][1] = (new Geometry(var14[3][1])).rotateY180();
+                        var14[2][2] = (new Geometry(var14[3][2])).rotateY180();
+                        var14[2][3] = (new Geometry(var14[3][3])).rotateY180();
+                        var14[0][0] = (new Geometry(var14[2][0])).rotateX180();
+                        var14[0][1] = (new Geometry(var14[2][1])).rotateX180();
+                        var14[0][2] = (new Geometry(var14[2][2])).rotateX180();
+                        var14[0][3] = (new Geometry(var14[2][3])).rotateX180();
+                        var14[1][0] = (new Geometry(var14[0][0])).rotateY180();
+                        var14[1][1] = (new Geometry(var14[0][1])).rotateY180();
+                        var14[1][2] = (new Geometry(var14[0][2])).rotateY180();
+                        var14[1][3] = (new Geometry(var14[0][3])).rotateY180();
+
+                        Geometry maybeCube = new Geometry(var14[0][0], var14[0][1], var14[0][2], var14[0][3], var14[1][0], var14[1][1],
                                 var14[1][2], var14[1][3], var14[2][0], var14[2][1], var14[2][2], var14[2][3], var14[3][0], var14[3][1],
                                 var14[3][2], var14[3][3], var13[0][0], var13[0][1], var13[1][0], var13[1][1], var13[2][0], var13[2][1],
-                                var13[3][0], var13[3][1], var29});
+                                var13[3][0], var13[3][1], twoSquares);
                         int[][] var17 = new int[256][];
 
                         for (int var18 = 0; var18 < 256; ++var18) {
@@ -148,21 +155,21 @@ public class Startup {
                             System.arraycopy(var19, 0, var17[var18] = new int[var30], 0, var30);
                         }
 
-                        final Animator var30 = new Animator(var1);
+                        final Animator animator = new Animator(drawable);
                         frame.addWindowListener(new WindowAdapter() {
                             public void windowClosing(WindowEvent var1) {
                                 (new Thread(new Runnable() {
                                     public void run() {
-                                        var30.stop();
+                                        animator.stop();
                                         System.exit(0);
                                     }
                                 })).start();
                             }
                         });
-                        var30.start();
+                        animator.start();
 
-                        ((E) h.B.A.A("monster", new E())).A(new f.D(var16, var17));
-                        gl2 = null;
+                        h.B.A.A("monster", new E()).A(new Geometry(maybeCube, var17));
+                        Startup.gl2 = null;
                     }
 
                     public void display(GLAutoDrawable var1) {
@@ -179,8 +186,10 @@ public class Startup {
                         int var3 = var1.getSurfaceWidth();
                         int var4 = var1.getSurfaceHeight();
                         var2.glClear(16384);
-                        Iterator var5 = D.iterator();
 
+                        GLU glu = new GLU();
+
+                        Iterator var5 = D.iterator();
                         while (var5.hasNext()) {
                             k.A var6 = (k.A) var5.next();
                             int var7 = (int) (var6.G() * (float) var3);
@@ -190,7 +199,7 @@ public class Startup {
                             var2.glViewport(var7, var8, var9, var10);
                             var2.glMatrixMode(5889);
                             var2.glLoadIdentity();
-                            C.gluPerspective(45.0D, (double) var9 / (double) var10, 1.0D, 1000.0D);
+                            glu.gluPerspective(45.0, (double) var9 / (double) var10, 1.0, 1000.0);
                             var2.glClear(256);
                             var2.glMatrixMode(5888);
                             var2.glLoadIdentity();
@@ -232,6 +241,8 @@ public class Startup {
                 glcanvas.requestFocus();
 
                 frame.add(glcanvas);
+                frame.setSize(1024, 768);
+                frame.setVisible(true);
             }
         });
     }

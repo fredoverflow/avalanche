@@ -1,6 +1,8 @@
 package h;
 
+import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
+import f.Geometry;
 import startup.Startup;
 
 import java.nio.FloatBuffer;
@@ -16,17 +18,20 @@ public class E implements C {
         Startup.gl2.glGenBuffers(2, this.C, 0);
     }
 
-    public void A(f.D var1) {
+    public void A(Geometry var1) {
         GL2 var2 = Startup.gl2;
-        this.G = var1.D();
-        this.D = var1.N();
-        var2.glBindBuffer(34962, this.C[0]);
-        FloatBuffer var3 = var1.A();
-        var2.glBufferData(34962, var3.capacity() * 4, var3, 35044);
-        var2.glBindBuffer(34963, this.C[1]);
-        IntBuffer var4 = var1.J();
+        this.G = var1.getOffsets();
+        this.D = var1.getLengths();
+
+        var2.glBindBuffer(GL.GL_ARRAY_BUFFER, this.C[0]);
+        FloatBuffer var3 = var1.vertexBuffer();
+        var2.glBufferData(GL.GL_ARRAY_BUFFER, var3.capacity() * 4, var3, 35044);
+
+        var2.glBindBuffer(GL.GL_ELEMENT_ARRAY_BUFFER, this.C[1]);
+        IntBuffer var4 = var1.indexBuffer();
         this.F = var4.capacity();
-        var2.glBufferData(34963, this.F * 4, var4, 35044);
+        var2.glBufferData(GL.GL_ELEMENT_ARRAY_BUFFER, this.F * 4, var4, GL.GL_STATIC_DRAW);
+
         int var5 = var3.capacity();
         System.out.printf("vertices: %d\n indices: %d\nmemory: %d KiB\n", var5, this.F, (var5 + this.F) / 256);
     }

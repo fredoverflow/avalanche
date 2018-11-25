@@ -11,7 +11,7 @@ public class D implements C {
         return this.A.containsKey(var1);
     }
 
-    public C A(String var1, C var2) {
+    public <T extends C> T A(String var1, T var2) {
         assert !this.C(var1) : var1;
 
         this.A.put(var1, var2);

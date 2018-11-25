@@ -1,6 +1,6 @@
 package f;
 
-public class A extends D {
+public class A extends Geometry {
     private static final double J = 1.5707963267948966D;
 
     public A(float var1, int var2) {
@@ -14,11 +14,11 @@ public class A extends D {
             var6 = 0;
 
             for (var7 = var2 - var3; var6 <= var7; ++var6) {
-                this.A(1.5707963267948966D * (double) var6 / (double) var7, var4, var1);
+                this.addUnit(1.5707963267948966D * (double) var6 / (double) var7, var4, var1);
             }
         }
 
-        this.A(0.0D, 1.5707963267948966D, var1);
+        this.addUnit(0.0D, 1.5707963267948966D, var1);
         var3 = 0;
 
         for (int var9 = 0; var9 < var2; ++var9) {
@@ -29,14 +29,14 @@ public class A extends D {
 
             int var8;
             for (var8 = var5; var8 < var6; ++var8) {
-                this.A(var8, var8 + 1, var8 + var7);
+                this.addTriangle(var8, var8 + 1, var8 + var7);
             }
 
             for (var8 = var5 + 1; var8 < var6; ++var8) {
-                this.A(var8, var8 + var7, var8 + var7 - 1);
+                this.addTriangle(var8, var8 + var7, var8 + var7 - 1);
             }
         }
 
-        this.M();
+        this.checkArraysFull();
     }
 }
