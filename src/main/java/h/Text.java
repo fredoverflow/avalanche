@@ -16,13 +16,13 @@ public class Text {
     public static final D A = new D();
 
     public static void A() {
-        B.A();
-        A.A();
+        B.delete();
+        A.delete();
     }
 
     public static void draw(String text, float x, float y, float z, float width, float alignment) {
         GL2 gl2 = Startup.gl2;
-        ((A) B.B("charset")).bindTexture();
+        ((Texture) B.B("charset")).bindTexture();
 
         gl2.glEnable(GL_BLEND);
         gl2.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

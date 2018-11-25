@@ -8,7 +8,7 @@ import startup.Startup;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-public class E implements C {
+public class E implements Deleteable {
     private final int[] C = new int[2];
     private int F;
     private int[] G;
@@ -62,7 +62,7 @@ public class E implements C {
         var1.glBindBuffer(34962, 0);
     }
 
-    public void A() {
+    public void delete() {
         Startup.gl2.glDeleteBuffers(2, this.C, 0);
     }
 }

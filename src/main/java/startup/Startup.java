@@ -12,6 +12,7 @@ import geometry.SphereOctant;
 import geometry.Square;
 import h.E;
 import h.Text;
+import h.Texture;
 import k.Viewport;
 import l.b.C;
 
@@ -62,10 +63,10 @@ public class Startup {
                         gl2.glFogf(GL_FOG_END, 100.0F);
                         gl2.glEnable(GL_FOG);
 
-                        Text.B.A("marble", new h.A()).A(new C(new l.A(2.0, 4.0, 12.0, 0.75, 0.25), new l.b.B(5.0)),
+                        Text.B.A("marble", new Texture()).A(new C(new l.A(2.0, 4.0, 12.0, 0.75, 0.25), new l.b.B(5.0)),
                                 512, 512);
-                        Text.B.A("charset", new h.A()).A("/charset.png", "png");
-                        Text.B.A("border", new h.A()).A(new l.A(2.0, 16.0, 48.0, 1.0, 0.5), 512, 512);
+                        Text.B.A("charset", new Texture()).load("/charset.png", "png");
+                        Text.B.A("border", new Texture()).A(new l.A(2.0, 16.0, 48.0, 1.0, 0.5), 512, 512);
                         Text.A.A("border bottom", new E()).A(new Cylinder(20.0F, 72, 2.0F, 0.0, _360, 64));
                         Text.A.A("border side", new E()).A((new Cylinder(24.0F, 96, 2.0F, 0.0, _360, 64)).rotateZ90());
 
