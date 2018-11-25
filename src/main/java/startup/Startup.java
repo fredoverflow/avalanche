@@ -1,5 +1,6 @@
 package startup;
 
+import a.MenuGameState;
 import c.Timer;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
@@ -38,7 +39,7 @@ public class Startup {
             public void run() {
                 Frame frame = new Frame();
 
-                a.B gameLike = new a.B();
+                MenuGameState gameLike = new MenuGameState();
 
                 GLEventListener glEventListener = new GLEventListener() {
                     @Override

@@ -8,10 +8,10 @@ import java.util.Iterator;
 import java.util.Queue;
 
 public class A implements KeyHandler {
-    private final B Ý;
+    private final Menu Ý;
     private final Queue Ü;
 
-    public A(B var1) {
+    public A(Menu var1) {
         this.Ý = var1;
         this.Ü = new ArrayDeque();
     }
@@ -22,13 +22,13 @@ public class A implements KeyHandler {
             var2 = (KeyEvent) var1.next();
             switch (var2.getKeyCode()) {
                 case 10:
-                    this.Ý.N();
+                    this.Ý.confirm();
                     break;
                 case 38:
-                    this.Ý.M();
+                    this.Ý.pickPreviousOption();
                     break;
                 case 40:
-                    this.Ý.L();
+                    this.Ý.pickNextOption();
             }
         }
 
