@@ -217,7 +217,7 @@ public class Geometry {
         v = numVertices * 6;
     }
 
-    protected void add(float x, float y, float z, float nx, float ny, float nz) {
+    protected void addVertex(float x, float y, float z, float nx, float ny, float nz) {
         vertex[v++] = x;
         vertex[v++] = y;
         vertex[v++] = z;
@@ -226,20 +226,20 @@ public class Geometry {
         vertex[v++] = nz;
     }
 
-    protected void addUnit(double alpha, double beta) {
+    protected void addUnitSphereVertex(double alpha, double beta) {
         float b = (float) Math.cos(beta);
         float x = b * (float) Math.sin(alpha);
         float y = (float) Math.sin(beta);
         float z = b * (float) Math.cos(alpha);
-        add(x, y, z, x, y, z);
+        addVertex(x, y, z, x, y, z);
     }
 
-    protected void addUnit(double alpha, double beta, float scale) {
+    protected void addSphereVertex(double alpha, double beta, float radius) {
         float b = (float) Math.cos(beta);
         float x = b * (float) Math.sin(alpha);
         float y = (float) Math.sin(beta);
         float z = b * (float) Math.cos(alpha);
-        add(scale * x, scale * y, scale * z, x, y, z);
+        addVertex(radius * x, radius * y, radius * z, x, y, z);
     }
 
     protected void setNumIndices(int numIndices) {

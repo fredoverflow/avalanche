@@ -14,7 +14,7 @@ public class Cylinder extends Geometry {
             float z = radius * nz;
 
             for (int i = 0; i <= linearResolution; ++i) {
-                this.add((float) i * delta, y, z, 0.0F, ny, nz);
+                this.addVertex((float) i * delta, y, z, 0.0F, ny, nz);
             }
         }
 

@@ -6,6 +6,7 @@ import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.Animator;
 import geometry.Cylinder;
 import geometry.Geometry;
+import geometry.SphereOctant;
 import geometry.Square;
 import h.E;
 import l.b.C;
@@ -93,7 +94,7 @@ public class Startup {
                         var14[3][2] = (new Geometry(var15)).rotateZ270().translate(posSixth, 0.5F, posSixth);
                         var14[3][2] = new Geometry(var14[3][2],
                                 (new Geometry(new Square(negSixth, posSixth, posSixth, 0.5F, 0.5F), var14[3][2])).rotateY90());
-                        var14[3][3] = (new geometry.A(third, eight)).translate(posSixth, posSixth, posSixth);
+                        var14[3][3] = (new SphereOctant(third, eight)).translate(posSixth, posSixth, posSixth);
                         var14[3][3] = new Geometry(
                                 var14[3][3],
                                 (new Geometry((new Cylinder(thirdAgain, 1, third, 0.0, _90, eight)).translate(negSixth, posSixth, posSixth),
