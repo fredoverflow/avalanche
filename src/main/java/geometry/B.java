@@ -1,4 +1,4 @@
-package f;
+package geometry;
 
 public class B extends Geometry {
     public B(float var1, int var2, float var3, double var4, double var6, int var8) {

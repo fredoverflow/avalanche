@@ -2,7 +2,7 @@ package h;
 
 import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
-import f.Geometry;
+import geometry.Geometry;
 import startup.Startup;
 
 import java.nio.FloatBuffer;

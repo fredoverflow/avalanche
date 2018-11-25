@@ -4,7 +4,7 @@ import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.Animator;
-import f.Geometry;
+import geometry.Geometry;
 import h.E;
 import l.b.C;
 
@@ -55,8 +55,8 @@ public class Startup {
                                 512, 512);
                         h.B.B.A("charset", new h.A()).A("/charset.png", "png");
                         h.B.B.A("border", new h.A()).A(new l.A(2.0, 16.0, 48.0, 1.0, 0.5), 512, 512);
-                        h.B.A.A("border bottom", new E()).A(new f.B(20.0F, 72, 2.0F, 0.0, _360, 64));
-                        h.B.A.A("border side", new E()).A((new f.B(24.0F, 96, 2.0F, 0.0, _360, 64)).rotateZ90());
+                        h.B.A.A("border bottom", new E()).A(new geometry.B(20.0F, 72, 2.0F, 0.0, _360, 64));
+                        h.B.A.A("border side", new E()).A((new geometry.B(24.0F, 96, 2.0F, 0.0, _360, 64)).rotateZ90());
 
                         float third = 0.33333334F;
                         byte eight = 8;
@@ -65,12 +65,12 @@ public class Startup {
                         // TODO thirdAgain probably has a different unit than third
                         float thirdAgain = posSixth - negSixth;
 
-                        f.C oneSquare = new f.C(negSixth, negSixth, posSixth, posSixth, 0.5F);
+                        geometry.C oneSquare = new geometry.C(negSixth, negSixth, posSixth, posSixth, 0.5F);
 
                         Geometry[][] var13 = new Geometry[4][2];
-                        var13[2][0] = new f.C(negSixth, -0.5F, posSixth, negSixth, 0.5F);
+                        var13[2][0] = new geometry.C(negSixth, -0.5F, posSixth, negSixth, 0.5F);
                         var13[2][0] = new Geometry((new Geometry(var13[2][0])).rotateY180(), var13[2][0]);
-                        var13[2][1] = (new f.B(thirdAgain, 1, third, -_90, 0.0, eight)).translate(negSixth, negSixth, posSixth);
+                        var13[2][1] = (new geometry.B(thirdAgain, 1, third, -_90, 0.0, eight)).translate(negSixth, negSixth, posSixth);
                         var13[2][1] = new Geometry(var13[2][1], (new Geometry(oneSquare, var13[2][1])).rotateX90());
                         var13[1][0] = (new Geometry(var13[2][0])).rotateZ90();
                         var13[1][1] = (new Geometry(var13[2][1])).rotateZ90();
@@ -83,18 +83,18 @@ public class Startup {
 
                         Geometry[][] var14 = new Geometry[4][4];
                         var14[3][0] = new Geometry(
-                                new f.C(posSixth, posSixth, 0.5F, 0.5F, 0.5F), (new f.C(-0.5F, posSixth, negSixth, 0.5F, 0.5F)).rotateY180());
-                        f.B var15 = new f.B(third, 1, third, 0.0, _90, eight);
+                                new geometry.C(posSixth, posSixth, 0.5F, 0.5F, 0.5F), (new geometry.C(-0.5F, posSixth, negSixth, 0.5F, 0.5F)).rotateY180());
+                        geometry.B var15 = new geometry.B(third, 1, third, 0.0, _90, eight);
                         var14[3][1] = (new Geometry(var15)).translate(posSixth, posSixth, posSixth);
                         var14[3][1] = new Geometry(var14[3][1],
-                                (new Geometry(new f.C(posSixth, negSixth, 0.5F, posSixth, 0.5F), var14[3][1])).rotateX270());
+                                (new Geometry(new geometry.C(posSixth, negSixth, 0.5F, posSixth, 0.5F), var14[3][1])).rotateX270());
                         var14[3][2] = (new Geometry(var15)).rotateZ270().translate(posSixth, 0.5F, posSixth);
                         var14[3][2] = new Geometry(var14[3][2],
-                                (new Geometry(new f.C(negSixth, posSixth, posSixth, 0.5F, 0.5F), var14[3][2])).rotateY90());
-                        var14[3][3] = (new f.A(third, eight)).translate(posSixth, posSixth, posSixth);
+                                (new Geometry(new geometry.C(negSixth, posSixth, posSixth, 0.5F, 0.5F), var14[3][2])).rotateY90());
+                        var14[3][3] = (new geometry.A(third, eight)).translate(posSixth, posSixth, posSixth);
                         var14[3][3] = new Geometry(
                                 var14[3][3],
-                                (new Geometry((new f.B(thirdAgain, 1, third, 0.0, _90, eight)).translate(negSixth, posSixth, posSixth),
+                                (new Geometry((new geometry.B(thirdAgain, 1, third, 0.0, _90, eight)).translate(negSixth, posSixth, posSixth),
                                         var14[3][3])).rotateY90());
                         var14[2][0] = (new Geometry(var14[3][0])).rotateY180();
                         var14[2][1] = (new Geometry(var14[3][1])).rotateY180();
