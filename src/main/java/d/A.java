@@ -1,13 +1,13 @@
 package d;
 
-import i.G;
+import i.KeyHandler;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.Queue;
 
-public class A implements G {
+public class A implements KeyHandler {
     private final B Ý;
     private final Queue Ü;
 
@@ -16,7 +16,7 @@ public class A implements G {
         this.Ü = new ArrayDeque();
     }
 
-    public synchronized void i() {
+    public synchronized void handleInput() {
         KeyEvent var2;
         for (Iterator var1 = this.Ü.iterator(); var1.hasNext(); var2.consume()) {
             var2 = (KeyEvent) var1.next();

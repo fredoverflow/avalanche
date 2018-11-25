@@ -1,11 +1,13 @@
 package i;
 
+import c.Timer;
+
 public class C implements H {
     private e.C H;
     private int J;
     private int F;
     private boolean E;
-    private c.D I;
+    private Timer I;
     private int G;
 
     public C(e.C var1, int var2, int var3) {
@@ -19,14 +21,14 @@ public class C implements H {
         this.J = var2;
         this.F = var3;
         this.E = false;
-        this.I = new c.D();
+        this.I = new Timer();
     }
 
     public void C() {
         if (!this.E) {
             this.E = true;
             this.H.A();
-            this.I = new c.D();
+            this.I = new Timer();
             this.G = this.J;
         }
 

@@ -1,8 +1,11 @@
 package n;
 
+import c.Timer;
+import g.Updateable;
+
 import java.util.Iterator;
 
-public class F implements g.B, Iterable {
+public class F implements Updateable, Iterable {
     private final j.A Â;
     private final E Ñ;
     public final int ¥;
@@ -63,7 +66,7 @@ public class F implements g.B, Iterable {
         var3.A();
     }
 
-    public void A() {
+    public void update() {
         this.£.B();
     }
 
@@ -178,7 +181,7 @@ public class F implements g.B, Iterable {
 
         public void A() {
             F.this.Í.A((o.B) (new o.A(j.A.C(-4))));
-            F.this.A();
+            F.this.update();
         }
 
         // $FF: synthetic method
@@ -352,7 +355,7 @@ public class F implements g.B, Iterable {
     }
 
     private class _N implements N {
-        private final c.D C = new c.D();
+        private final Timer C = new Timer();
 
         public _N() {
         }

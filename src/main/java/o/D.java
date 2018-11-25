@@ -1,7 +1,9 @@
 package o;
 
+import c.Timer;
+
 public class D implements B {
-    private c.D E = new c.D();
+    private Timer E = new Timer();
     private int G;
     private int D;
     private int B;

@@ -1,6 +1,7 @@
 package b;
 
 import com.jogamp.opengl.GL2;
+import g.Renderable;
 import n.I;
 import startup.Startup;
 
@@ -8,7 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class D implements g.A {
+public class D implements Renderable {
     private p.A H;
     private I L;
     private Queue G;
@@ -39,7 +40,7 @@ public class D implements g.A {
         this.G.offer(new C(var1));
     }
 
-    public void B() {
+    public void render() {
         GL2 var1 = Startup.gl2;
         this.F.B();
         float var2 = this.F.A();
@@ -50,7 +51,7 @@ public class D implements g.A {
             var1.glPushMatrix();
             var2 += -10.0F;
             var1.glTranslatef(this.K, this.I, var2);
-            var4.B();
+            var4.render();
             var1.glPopMatrix();
         }
 

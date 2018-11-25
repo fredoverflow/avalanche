@@ -5,7 +5,7 @@ import n.K;
 import java.awt.event.KeyEvent;
 import java.util.*;
 
-public class B implements G {
+public class B implements KeyHandler {
     private static final int[][] Þ = new int[][]{{65, 68, 87, 83, 81, 49}, {37, 39, 38, 40, 10, 8}};
     private K ã;
     private Map à;
@@ -73,7 +73,7 @@ public class B implements G {
 
     }
 
-    public synchronized void i() {
+    public synchronized void handleInput() {
         Iterator var1 = this.á.iterator();
 
         while (var1.hasNext()) {

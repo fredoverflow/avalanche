@@ -1,9 +1,10 @@
 package b;
 
 import com.jogamp.opengl.GL2;
+import g.Renderable;
 import startup.Startup;
 
-public class C implements g.A {
+public class C implements Renderable {
     private static final float A = 0.125F;
     private static final float[] E = new float[]{0.5643347F, 0.5643347F, 0.0F, 0.5F, 0.0F, 0.7132669F, 0.7132669F, 0.5F, 0.0F, 0.8517889F, 0.0F, 0.5F, 1.0F, 0.2867333F, 0.2867333F, 0.5F, 0.84388167F, 0.42194083F, 0.0F, 0.5F, 0.43566582F, 0.43566582F, 1.0F, 0.5F, 1.0F, 0.14821129F, 1.0F, 0.5F, 0.54901963F, 0.47058824F, 0.3254902F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F};
     private n.D C;
@@ -27,7 +28,7 @@ public class C implements g.A {
         this.B[3] = var1;
     }
 
-    public void B() {
+    public void render() {
         GL2 var1 = Startup.gl2;
         var1.glColor4fv(this.B, 0);
         int var2 = 0;

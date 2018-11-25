@@ -1,43 +1,45 @@
 package k;
 
+import g.Renderable;
+
 import java.util.Iterator;
 
 public class E implements Iterable {
-    private final A A;
+    private final Viewport A;
 
-    public E(final g.A var1) {
-        this.A = new A() {
-            public float H() {
+    public E(final Renderable var1) {
+        this.A = new Viewport() {
+            public float height() {
                 return 1.0F;
             }
 
-            public float J() {
+            public float width() {
                 return 1.0F;
             }
 
-            public float G() {
+            public float x() {
                 return 0.0F;
             }
 
-            public float I() {
+            public float y() {
                 return 0.0F;
             }
 
-            public void B() {
-                var1.B();
+            public void render() {
+                var1.render();
             }
         };
     }
 
-    public Iterator<A> iterator() {
-        return new Iterator<A>() {
+    public Iterator<Viewport> iterator() {
+        return new Iterator<Viewport>() {
             private boolean B = true;
 
             public boolean hasNext() {
                 return this.B;
             }
 
-            public A next() {
+            public Viewport next() {
                 this.B = false;
                 return E.this.A;
             }

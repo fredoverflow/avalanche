@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class C implements D {
     public static final C ì = new C();
 
-    public void A() {
+    public void update() {
     }
 
     public void keyPressed(KeyEvent var1) {
@@ -18,7 +18,7 @@ public class C implements D {
     public void keyTyped(KeyEvent var1) {
     }
 
-    public void i() {
+    public void handleInput() {
     }
 
     public Iterator iterator() {

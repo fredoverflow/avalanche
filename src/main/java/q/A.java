@@ -11,12 +11,12 @@ public class A implements B {
         this.m.add(var1);
     }
 
-    public void A() {
+    public void update() {
         int var1 = 0;
 
         for (int var2 = this.m.size(); var1 < var2; ++var1) {
             B var3 = (B) this.m.get(var1);
-            var3.A();
+            var3.update();
             if (var3.K()) {
                 --var2;
                 this.m.set(var1, this.m.get(var2));
@@ -26,12 +26,12 @@ public class A implements B {
 
     }
 
-    public void B() {
+    public void render() {
         Iterator var1 = this.m.iterator();
 
         while (var1.hasNext()) {
             B var2 = (B) var1.next();
-            var2.B();
+            var2.render();
         }
 
     }

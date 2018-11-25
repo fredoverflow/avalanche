@@ -2,6 +2,7 @@ package a;
 
 import b.F;
 import b.G;
+import g.Renderable;
 import n.K;
 
 import java.util.Set;
@@ -18,7 +19,7 @@ public class B extends A {
         d.B var4 = new d.B("a v a l a n c h e", new float[]{0.0F, 0.0F, 0.5F}, new float[]{1.0F, 1.0F, 1.0F}, new d.C[]{var1, var2});
         d.A var5 = new d.A(var4);
         F var6 = new F(100);
-        this.A(new E(var4, var5, new k.E(new G(new g.A[]{var6, var4}))));
+        this.A(new E(var4, var5, new k.E(new G(new Renderable[]{var6, var4}))));
         var1.B(new p.C() {
             public void A(Object var1) {
                 B.this.k();
@@ -56,7 +57,7 @@ public class B extends A {
         i.B var4 = new i.B(var3);
         b.E var5 = new b.E(var3.H(0));
         b.E var6 = new b.E(var3.H(1));
-        this.A(new E(var3, var4, new k.D(new g.A[]{var5, var6})));
+        this.A(new E(var3, var4, new k.D(new Renderable[]{var5, var6})));
         var3.e().B(new p.C<Set>() {
             public void A(Set var1) {
                 B.this.j();

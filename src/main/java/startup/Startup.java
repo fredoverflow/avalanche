@@ -1,5 +1,6 @@
 package startup;
 
+import c.Timer;
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.glu.GLU;
@@ -9,13 +10,18 @@ import geometry.Geometry;
 import geometry.SphereOctant;
 import geometry.Square;
 import h.E;
+import k.Viewport;
 import l.b.C;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Iterator;
+
+import static com.jogamp.opengl.GL.*;
+import static com.jogamp.opengl.GL2ES1.*;
+import static com.jogamp.opengl.fixedfunc.GLMatrixFunc.GL_MODELVIEW;
+import static com.jogamp.opengl.fixedfunc.GLMatrixFunc.GL_PROJECTION;
 
 public class Startup {
     public static GL2 gl2;
@@ -32,7 +38,7 @@ public class Startup {
             public void run() {
                 Frame frame = new Frame();
 
-                a.B D = new a.B();
+                a.B gameLike = new a.B();
 
                 GLEventListener glEventListener = new GLEventListener() {
                     @Override
@@ -41,18 +47,18 @@ public class Startup {
                         Startup.gl2 = gl2;
 
                         gl2.glClearColor(0.43820223F, 0.43820223F, 1.0F, 1.0F);
-                        gl2.glEnable(GL.GL_DEPTH_TEST);
-                        gl2.glFrontFace(GL.GL_CCW);
-                        gl2.glCullFace(GL.GL_BACK);
-                        gl2.glEnable(GL.GL_CULL_FACE);
+                        gl2.glEnable(GL_DEPTH_TEST);
+                        gl2.glFrontFace(GL_CCW);
+                        gl2.glCullFace(GL_BACK);
+                        gl2.glEnable(GL_CULL_FACE);
 
-                        gl2.glFogi(GL2ES1.GL_FOG_MODE, GL.GL_LINEAR);
-                        gl2.glFogfv(GL2ES1.GL_FOG_COLOR, new float[]{0.43820223F, 0.43820223F, 1.0F, 1.0F}, 0);
-                        gl2.glFogf(GL2ES1.GL_FOG_DENSITY, 0.35F);
-                        gl2.glHint(GL2ES1.GL_FOG_HINT, GL.GL_DONT_CARE);
-                        gl2.glFogf(GL2ES1.GL_FOG_START, 25.0F);
-                        gl2.glFogf(GL2ES1.GL_FOG_END, 100.0F);
-                        gl2.glEnable(GL2ES1.GL_FOG);
+                        gl2.glFogi(GL_FOG_MODE, GL_LINEAR);
+                        gl2.glFogfv(GL_FOG_COLOR, new float[]{0.43820223F, 0.43820223F, 1.0F, 1.0F}, 0);
+                        gl2.glFogf(GL_FOG_DENSITY, 0.35F);
+                        gl2.glHint(GL_FOG_HINT, GL_DONT_CARE);
+                        gl2.glFogf(GL_FOG_START, 25.0F);
+                        gl2.glFogf(GL_FOG_END, 100.0F);
+                        gl2.glEnable(GL_FOG);
 
                         h.B.B.A("marble", new h.A()).A(new C(new l.A(2.0, 4.0, 12.0, 0.75, 0.25), new l.b.B(5.0)),
                                 512, 512);
@@ -158,6 +164,8 @@ public class Startup {
                             System.arraycopy(var19, 0, var17[var18] = new int[var30], 0, var30);
                         }
 
+                        h.B.A.A("monster", new E()).A(new Geometry(maybeCube, var17));
+
                         final Animator animator = new Animator(drawable);
                         frame.addWindowListener(new WindowAdapter() {
                             public void windowClosing(WindowEvent var1) {
@@ -170,61 +178,52 @@ public class Startup {
                             }
                         });
                         animator.start();
-
-                        h.B.A.A("monster", new E()).A(new Geometry(maybeCube, var17));
-                        Startup.gl2 = null;
                     }
 
-                    public void display(GLAutoDrawable var1) {
-                        c.D.A();
-
-                        while (c.D.C()) {
-                            D.A();
-                            c.D.E();
+                    public void display(GLAutoDrawable drawable) {
+                        Timer.update();
+                        while (Timer.currentFrameLowerThanTargetFrame()) {
+                            gameLike.update();
+                            Timer.incrementCurrentFrame();
                         }
+                        gameLike.handleInput();
 
-                        D.i();
-                        GL2 var2 = var1.getGL().getGL2();
-                        gl2 = var2;
-                        int var3 = var1.getSurfaceWidth();
-                        int var4 = var1.getSurfaceHeight();
-                        var2.glClear(16384);
-
+                        GL2 gl2 = Startup.gl2;
+                        gl2.glClear(GL_COLOR_BUFFER_BIT);
+                        int surfaceWidth = drawable.getSurfaceWidth();
+                        int surfaceHeight = drawable.getSurfaceHeight();
                         GLU glu = new GLU();
 
-                        Iterator var5 = D.iterator();
-                        while (var5.hasNext()) {
-                            k.A var6 = (k.A) var5.next();
-                            int var7 = (int) (var6.G() * (float) var3);
-                            int var8 = (int) (var6.I() * (float) var4);
-                            int var9 = (int) (var6.J() * (float) var3);
-                            int var10 = (int) (var6.H() * (float) var4);
-                            var2.glViewport(var7, var8, var9, var10);
-                            var2.glMatrixMode(5889);
-                            var2.glLoadIdentity();
-                            glu.gluPerspective(45.0, (double) var9 / (double) var10, 1.0, 1000.0);
-                            var2.glClear(256);
-                            var2.glMatrixMode(5888);
-                            var2.glLoadIdentity();
-                            var2.glTranslatef(0.0F, 0.0F, -32.0F);
-                            float var11 = 0.05F;
-                            float var12 = 0.5F;
-                            float var13 = 1.0F;
-                            float[] var14 = new float[]{var11, var11, var11, 1.0F};
-                            float[] var15 = new float[]{var12, var12, var12, 1.0F};
-                            float[] var16 = new float[]{var13, var13, var13, 1.0F};
-                            float[] var17 = new float[]{-10.0F, 10.0F, 10.0F, 1.0F};
-                            var2.glLightfv(16384, 4608, var14, 0);
-                            var2.glLightfv(16384, 4609, var15, 0);
-                            var2.glLightfv(16384, 4610, var16, 0);
-                            var2.glLightfv(16384, 4611, var17, 0);
-                            var2.glEnable(16384);
-                            var2.glEnable(2896);
-                            var2.glColorMaterial(1032, 5634);
-                            var2.glEnable(2903);
-                            var2.glMaterialfv(1028, 4610, var16, 0);
-                            var2.glMateriali(1028, 5633, 128);
-                            var6.B();
+                        for (Viewport viewport : gameLike) {
+                            int x = (int) (viewport.x() * (float) surfaceWidth);
+                            int y = (int) (viewport.y() * (float) surfaceHeight);
+                            int width = (int) (viewport.width() * (float) surfaceWidth);
+                            int height = (int) (viewport.height() * (float) surfaceHeight);
+                            gl2.glViewport(x, y, width, height);
+                            gl2.glClear(GL_DEPTH_BUFFER_BIT);
+
+                            gl2.glMatrixMode(GL_PROJECTION);
+                            gl2.glLoadIdentity();
+                            glu.gluPerspective(45.0, (double) width / (double) height, 1.0, 1000.0);
+                            gl2.glMatrixMode(GL_MODELVIEW);
+                            gl2.glLoadIdentity();
+                            gl2.glTranslatef(0.0F, 0.0F, -32.0F);
+
+                            float ambient = 0.05F;
+                            float diffuse = 0.5F;
+                            float specular = 1.0F;
+                            gl2.glLightfv(GL_LIGHT0, GL_AMBIENT, new float[]{ambient, ambient, ambient, 1.0F}, 0);
+                            gl2.glLightfv(GL_LIGHT0, GL_DIFFUSE, new float[]{diffuse, diffuse, diffuse, 1.0F}, 0);
+                            gl2.glLightfv(GL_LIGHT0, GL_SPECULAR, new float[]{specular, specular, specular, 1.0F}, 0);
+                            gl2.glLightfv(GL_LIGHT0, GL_POSITION, new float[]{-10.0F, 10.0F, 10.0F, 1.0F}, 0);
+                            gl2.glEnable(GL_LIGHT0);
+                            gl2.glEnable(GL_LIGHTING);
+                            gl2.glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+                            gl2.glEnable(GL_COLOR_MATERIAL);
+                            gl2.glMaterialfv(GL_FRONT, GL_SPECULAR, new float[]{specular, specular, specular, 1.0F}, 0);
+                            gl2.glMateriali(GL_FRONT, GL_SHININESS, 128);
+
+                            viewport.render();
                         }
                     }
 
@@ -239,7 +238,7 @@ public class Startup {
 
                 GLCanvas glcanvas = new GLCanvas();
                 glcanvas.addGLEventListener(glEventListener);
-                glcanvas.addKeyListener(D);
+                glcanvas.addKeyListener(gameLike);
                 glcanvas.setFocusable(true);
                 glcanvas.requestFocus();
 

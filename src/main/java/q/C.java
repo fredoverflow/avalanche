@@ -24,7 +24,7 @@ public class C implements B {
         this.s = new c.A(var5, 1.0F, 0.0F);
     }
 
-    public void A() {
+    public void update() {
         this.n.D();
         this.t.D();
         this.r.D();
@@ -35,14 +35,14 @@ public class C implements B {
         return this.s.C();
     }
 
-    public void B() {
+    public void render() {
         GL2 var1 = Startup.gl2;
         var1.glPushMatrix();
         var1.glTranslated((double) j.A.A((float) this.n.C()), (double) j.A.A((float) this.t.C()), (double) j.A.A((float) this.r.C()));
         var1.glEnable(3042);
         var1.glBlendFunc(770, 771);
         this.p.A(this.s.A());
-        this.p.B();
+        this.p.render();
         var1.glDisable(3042);
         var1.glPopMatrix();
     }

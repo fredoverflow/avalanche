@@ -1,6 +1,8 @@
 package a;
 
-import i.G;
+import g.Updateable;
+import i.KeyHandler;
+import k.Viewport;
 
-public interface D extends g.B, G, Iterable {
+public interface D extends Updateable, KeyHandler, Iterable<Viewport> {
 }

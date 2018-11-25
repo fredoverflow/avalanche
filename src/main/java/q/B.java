@@ -1,5 +1,8 @@
 package q;
 
-public interface B extends g.A, g.B {
+import g.Renderable;
+import g.Updateable;
+
+public interface B extends Renderable, Updateable {
     boolean K();
 }

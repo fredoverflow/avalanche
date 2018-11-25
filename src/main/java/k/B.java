@@ -2,14 +2,14 @@ package k;
 
 import java.util.Iterator;
 
-public class B implements Iterator<A> {
+public class B implements Iterator<Viewport> {
     public static final B A = new B();
 
     public boolean hasNext() {
         return false;
     }
 
-    public A next() {
+    public Viewport next() {
         return null;
     }
 

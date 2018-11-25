@@ -1,7 +1,7 @@
 package c;
 
 public class A {
-    private D B;
+    private Timer B;
     private int C;
     private float E;
     private float D;
@@ -16,7 +16,7 @@ public class A {
     }
 
     public A(float var1, float var2, float var3) {
-        this.B = new D();
+        this.B = new Timer();
         this.A = var3;
         this.E = var1;
         this.D = var2;
@@ -24,7 +24,7 @@ public class A {
     }
 
     private void A(int var1, float var2, float var3) {
-        this.B = new D();
+        this.B = new Timer();
         this.C = var1;
         this.E = var2;
         this.D = var3;

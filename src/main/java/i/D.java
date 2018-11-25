@@ -3,7 +3,7 @@ package i;
 import java.awt.event.KeyEvent;
 import java.util.*;
 
-public class D implements G {
+public class D implements KeyHandler {
     private static final int[] å = new int[]{37, 39, 38, 40, 10, 8};
     private n.F ë;
     private Map ç;
@@ -61,7 +61,7 @@ public class D implements G {
 
     }
 
-    public synchronized void i() {
+    public synchronized void handleInput() {
         Iterator var1 = this.è.iterator();
 
         while (var1.hasNext()) {

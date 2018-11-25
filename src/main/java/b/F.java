@@ -1,11 +1,12 @@
 package b;
 
 import com.jogamp.opengl.GL2;
+import g.Renderable;
 import startup.Startup;
 
 import java.util.Random;
 
-public class F implements g.A {
+public class F implements Renderable {
     private static final float _ = 0.0F;
     private F._A[] b;
     private long d;
@@ -33,7 +34,7 @@ public class F implements g.A {
 
     }
 
-    public void B() {
+    public void render() {
         GL2 var1 = Startup.gl2;
         this.F();
         ((h.E) h.B.A.B("monster")).C();

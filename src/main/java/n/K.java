@@ -1,10 +1,12 @@
 package n;
 
+import g.Updateable;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class K implements g.B {
+public class K implements Updateable {
     private p.A Ø;
     private F[] Û;
     private Set Ö;
@@ -29,7 +31,7 @@ public class K implements g.B {
         this.Ø = new p.B();
     }
 
-    public void A() {
+    public void update() {
         this.h();
         this.d();
         this.f();
@@ -42,7 +44,7 @@ public class K implements g.B {
 
         for (int var3 = 0; var3 < var2; ++var3) {
             F var4 = var1[var3];
-            var4.A();
+            var4.update();
         }
 
     }

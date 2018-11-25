@@ -1,6 +1,7 @@
 package b;
 
 import com.jogamp.opengl.GL2;
+import g.Renderable;
 import n.J;
 import startup.Startup;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class E implements g.A {
+public class E implements Renderable {
     private n.F T;
     private D X;
     private Map R;
@@ -54,7 +55,7 @@ public class E implements g.A {
         this.X.C().B(new E._C());
     }
 
-    public void B() {
+    public void render() {
         GL2 var1 = Startup.gl2;
         var1.glTexGeni(8193, 9472, 9217);
         var1.glTexGeni(8192, 9472, 9217);
@@ -88,7 +89,7 @@ public class E implements g.A {
         var1.glPopMatrix();
         ((h.A) h.B.B.B("marble")).E();
         ((h.E) h.B.A.B("monster")).C();
-        this.X.B();
+        this.X.render();
         Iterator var6 = this.R.entrySet().iterator();
 
         while (var6.hasNext()) {
@@ -105,7 +106,7 @@ public class E implements g.A {
                 var1.glBlendFunc(770, 771);
                 this.S.A(var8);
                 this.Q.A(var8);
-                var9.B();
+                var9.render();
                 var1.glDisable(3042);
                 var1.glEnable(2929);
                 var1.glPopMatrix();
@@ -119,7 +120,7 @@ public class E implements g.A {
             this.S.A(var8);
             this.Q.A(var8);
             this.P.A(var8);
-            var9.B();
+            var9.render();
             var1.glPopMatrix();
         }
 
@@ -130,12 +131,12 @@ public class E implements g.A {
         var1.glEnable(3042);
         var1.glDisable(2929);
         var1.glBlendFunc(770, 771);
-        this.U.B();
+        this.U.render();
         var1.glDisable(3042);
         var1.glEnable(2929);
         var1.glPopMatrix();
-        this.N.A();
-        this.N.B();
+        this.N.update();
+        this.N.render();
         ((h.E) h.B.A.B("monster")).B();
         var1.glEnable(3553);
         var1.glDisable(3168);

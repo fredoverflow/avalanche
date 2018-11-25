@@ -1,11 +1,13 @@
 package o;
 
+import c.Timer;
+
 public class G implements B {
     private B I;
     private int K;
     private int H;
     private C L;
-    private c.D J;
+    private Timer J;
 
     public G(B var1, int var2, int var3, C var4) {
         assert var1 != null;
@@ -18,7 +20,7 @@ public class G implements B {
         this.K = var2;
         this.H = var3;
         this.L = var4;
-        this.J = new c.D();
+        this.J = new Timer();
     }
 
     public void D() {

@@ -14,8 +14,8 @@ public class A implements D {
         this.ð = var1;
     }
 
-    public void A() {
-        this.ð.A();
+    public void update() {
+        this.ð.update();
     }
 
     public void keyPressed(KeyEvent var1) {
@@ -30,8 +30,8 @@ public class A implements D {
         this.ð.keyTyped(var1);
     }
 
-    public void i() {
-        this.ð.i();
+    public void handleInput() {
+        this.ð.handleInput();
     }
 
     public Iterator iterator() {

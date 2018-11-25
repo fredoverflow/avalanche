@@ -1,9 +1,11 @@
 package d;
 
 import com.jogamp.opengl.GL2;
+import g.Renderable;
+import g.Updateable;
 import startup.Startup;
 
-public class B implements g.A, g.B {
+public class B implements Renderable, Updateable {
     private final String z;
     private C[] u;
     private int x;
@@ -30,7 +32,7 @@ public class B implements g.A, g.B {
         this.u[this.x].A((Object) null);
     }
 
-    public void B() {
+    public void render() {
         GL2 var1 = Startup.gl2;
         var1.glColor3fv(this.y, 0);
         h.B.A(this.z, 0.0F, 10.0F, 0.0F, 1.5F, 0.5F);
@@ -50,6 +52,6 @@ public class B implements g.A, g.B {
         }
     }
 
-    public void A() {
+    public void update() {
     }
 }
