@@ -21,9 +21,9 @@ public class Geometry {
         return length.clone();
     }
 
-    protected Geometry(int numVertices, int numIndices) {
+    protected Geometry(int numVertices, int numTriangles) {
         vertex = new float[numVertices * 6];
-        index = new int[numIndices * 3];
+        index = new int[numTriangles * 3];
         offset = new int[]{0};
         length = new int[]{index.length};
     }
@@ -246,15 +246,15 @@ public class Geometry {
         n = numIndices * 3;
     }
 
-    protected void addTriangle(int index0, int index1, int index2) {
+    protected void addTriangleIndices(int index0, int index1, int index2) {
         index[n++] = index0;
         index[n++] = index1;
         index[n++] = index2;
     }
 
-    protected void addSquare(int index0, int index1, int index2, int index3) {
-        addTriangle(index0, index1, index2);
-        addTriangle(index2, index3, index0);
+    protected void addSquareIndices(int index0, int index1, int index2, int index3) {
+        addTriangleIndices(index0, index1, index2);
+        addTriangleIndices(index2, index3, index0);
     }
 
     protected void addIndices(int... indices) {

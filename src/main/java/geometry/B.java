@@ -23,7 +23,7 @@ public class B extends Geometry {
 
         for (int var20 = 0; var12 < var8; ++var20) {
             for (int var14 = 0; var14 < var2; ++var20) {
-                this.addSquare(var20, var20 + 1, var20 + var2 + 2, var20 + var2 + 1);
+                this.addSquareIndices(var20, var20 + 1, var20 + var2 + 2, var20 + var2 + 1);
                 ++var14;
             }
 

@@ -29,11 +29,11 @@ public class A extends Geometry {
 
             int var8;
             for (var8 = var5; var8 < var6; ++var8) {
-                this.addTriangle(var8, var8 + 1, var8 + var7);
+                this.addTriangleIndices(var8, var8 + 1, var8 + var7);
             }
 
             for (var8 = var5 + 1; var8 < var6; ++var8) {
-                this.addTriangle(var8, var8 + var7, var8 + var7 - 1);
+                this.addTriangleIndices(var8, var8 + var7, var8 + var7 - 1);
             }
         }
 
