@@ -7,7 +7,7 @@ public class E implements TexelFunction {
     private double T;
 
     public E(double var1, double var3, double var5) {
-        this.S = new C(var1);
+        this.S = new PerlinNoise(var1);
         this.R = var3;
         this.U = var5;
         this.T = 1.0D - var5;

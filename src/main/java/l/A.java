@@ -1,7 +1,7 @@
 package l;
 
 public class A implements TexelFunction {
-    private C F;
+    private PerlinNoise F;
     private double J;
     private double H;
     private double E;
@@ -9,7 +9,7 @@ public class A implements TexelFunction {
     private double G;
 
     public A(double var1, double var3, double var5, double var7, double var9) {
-        this.F = new C(var1);
+        this.F = new PerlinNoise(var1);
         this.J = 6.283185307179586D * var3;
         this.H = var5;
         this.E = 6.283185307179586D * var7;
