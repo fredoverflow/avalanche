@@ -1,6 +1,6 @@
 package l;
 
-public class C implements B {
+public class C implements TexelFunction {
     private double N;
     private int M;
     static final int[] L = new int[512];
@@ -11,13 +11,13 @@ public class C implements B {
         this.N = var1 - Math.floor(var1);
     }
 
-    public double A(double var1, double var3) {
-        int var5 = (int) Math.floor(var1) & 255;
-        int var6 = (int) Math.floor(var3) & 255;
-        var1 -= Math.floor(var1);
-        var3 -= Math.floor(var3);
-        double var7 = A(var1);
-        double var9 = A(var3);
+    public double apply(double x, double y) {
+        int var5 = (int) Math.floor(x) & 255;
+        int var6 = (int) Math.floor(y) & 255;
+        x -= Math.floor(x);
+        y -= Math.floor(y);
+        double var7 = A(x);
+        double var9 = A(y);
         double var11 = A(this.N);
         int var13 = L[var5] + var6;
         int var14 = L[var13] + this.M;
@@ -25,7 +25,7 @@ public class C implements B {
         int var16 = L[var5 + 1] + var6;
         int var17 = L[var16] + this.M;
         int var18 = L[var16 + 1] + this.M;
-        return A(var11, A(var9, A(var7, A(L[var14], var1, var3, this.N), A(L[var17], var1 - 1.0D, var3, this.N)), A(var7, A(L[var15], var1, var3 - 1.0D, this.N), A(L[var18], var1 - 1.0D, var3 - 1.0D, this.N))), A(var9, A(var7, A(L[var14 + 1], var1, var3, this.N - 1.0D), A(L[var17 + 1], var1 - 1.0D, var3, this.N - 1.0D)), A(var7, A(L[var15 + 1], var1, var3 - 1.0D, this.N - 1.0D), A(L[var18 + 1], var1 - 1.0D, var3 - 1.0D, this.N - 1.0D))));
+        return A(var11, A(var9, A(var7, A(L[var14], x, y, this.N), A(L[var17], x - 1.0D, y, this.N)), A(var7, A(L[var15], x, y - 1.0D, this.N), A(L[var18], x - 1.0D, y - 1.0D, this.N))), A(var9, A(var7, A(L[var14 + 1], x, y, this.N - 1.0D), A(L[var17 + 1], x - 1.0D, y, this.N - 1.0D)), A(var7, A(L[var15 + 1], x, y - 1.0D, this.N - 1.0D), A(L[var18 + 1], x - 1.0D, y - 1.0D, this.N - 1.0D))));
     }
 
     static double A(double var0) {

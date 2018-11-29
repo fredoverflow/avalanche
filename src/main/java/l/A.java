@@ -1,6 +1,6 @@
 package l;
 
-public class A implements B {
+public class A implements TexelFunction {
     private C F;
     private double J;
     private double H;
@@ -17,7 +17,7 @@ public class A implements B {
         this.G = 1.0D - this.I;
     }
 
-    public double A(double var1, double var3) {
-        return Math.cos(var1 * this.J + this.F.A(var1 * this.H, var3 * this.H) * this.E) * this.I + this.G;
+    public double apply(double x, double y) {
+        return Math.cos(x * this.J + this.F.apply(x * this.H, y * this.H) * this.E) * this.I + this.G;
     }
 }

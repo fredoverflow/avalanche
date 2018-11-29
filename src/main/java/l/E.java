@@ -1,7 +1,7 @@
 package l;
 
-public class E implements B {
-    private B S;
+public class E implements TexelFunction {
+    private TexelFunction S;
     private double R;
     private double U;
     private double T;
@@ -13,8 +13,8 @@ public class E implements B {
         this.T = 1.0D - var5;
     }
 
-    public double A(double var1, double var3) {
-        double var5 = this.S.A(var1, var3) * this.R;
+    public double apply(double x, double y) {
+        double var5 = this.S.apply(x, y) * this.R;
         var5 -= Math.floor(var5);
         var5 = var5 * this.U + this.T;
         return var5;

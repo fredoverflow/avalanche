@@ -1,6 +1,6 @@
 package l;
 
-public class D implements B {
+public class D implements TexelFunction {
     private double P;
     private double Q;
     private double O;
@@ -11,9 +11,9 @@ public class D implements B {
         this.Q = var5;
     }
 
-    public double A(double var1, double var3) {
-        boolean var5 = ((int) Math.floor(var1 * this.O) & 1) == 0;
-        boolean var6 = ((int) Math.floor(var3 * this.O) & 1) == 0;
+    public double apply(double x, double y) {
+        boolean var5 = ((int) Math.floor(x * this.O) & 1) == 0;
+        boolean var6 = ((int) Math.floor(y * this.O) & 1) == 0;
         return var5 ^ var6 ? this.Q : this.P;
     }
 }

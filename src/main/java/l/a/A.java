@@ -1,13 +1,15 @@
 package l.a;
 
-public class A implements l.B {
-    private l.B V;
+import l.TexelFunction;
 
-    public A(l.B var1) {
+public class A implements TexelFunction {
+    private TexelFunction V;
+
+    public A(TexelFunction var1) {
         this.V = var1;
     }
 
-    public double A(double var1, double var3) {
-        return this.V.A(var1, var3) + var1;
+    public double apply(double x, double y) {
+        return this.V.apply(x, y) + x;
     }
 }
