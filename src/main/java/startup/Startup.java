@@ -10,7 +10,7 @@ import geometry.Cylinder;
 import geometry.Geometry;
 import geometry.SphereOctant;
 import geometry.Square;
-import h.E;
+import h.Element;
 import h.Text;
 import h.Texture;
 import k.Viewport;
@@ -63,12 +63,12 @@ public class Startup {
                         gl2.glFogf(GL_FOG_END, 100.0F);
                         gl2.glEnable(GL_FOG);
 
-                        Text.B.A("marble", new Texture()).generate(new C(new l.A(2.0, 4.0, 12.0, 0.75, 0.25), new l.b.B(5.0)),
+                        Text.textures.put("marble", new Texture()).generate(new C(new l.A(2.0, 4.0, 12.0, 0.75, 0.25), new l.b.B(5.0)),
                                 512, 512);
-                        Text.B.A("charset", new Texture()).load("/charset.png", "png");
-                        Text.B.A("border", new Texture()).generate(new l.A(2.0, 16.0, 48.0, 1.0, 0.5), 512, 512);
-                        Text.A.A("border bottom", new E()).A(new Cylinder(20.0F, 72, 2.0F, 0.0, _360, 64));
-                        Text.A.A("border side", new E()).A((new Cylinder(24.0F, 96, 2.0F, 0.0, _360, 64)).rotateZ90());
+                        Text.textures.put("charset", new Texture()).load("/charset.png", "png");
+                        Text.textures.put("border", new Texture()).generate(new l.A(2.0, 16.0, 48.0, 1.0, 0.5), 512, 512);
+                        Text.elements.put("border bottom", new Element()).load(new Cylinder(20.0F, 72, 2.0F, 0.0, _360, 64));
+                        Text.elements.put("border side", new Element()).load((new Cylinder(24.0F, 96, 2.0F, 0.0, _360, 64)).rotateZ90());
 
                         float third = 0.33333334F;
                         byte eight = 8;
@@ -167,7 +167,7 @@ public class Startup {
                             System.arraycopy(var19, 0, var17[var18] = new int[var30], 0, var30);
                         }
 
-                        Text.A.A("monster", new E()).A(new Geometry(maybeCube, var17));
+                        Text.elements.put("monster", new Element()).load(new Geometry(maybeCube, var17));
 
                         final Animator animator = new Animator(drawable);
                         frame.addWindowListener(new WindowAdapter() {

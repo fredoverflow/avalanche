@@ -12,17 +12,17 @@ public class Text {
     public static final float ALIGN_CENTER = 0.5F;
     public static final float ALIGN_RIGHT = 1.0F;
 
-    public static final D B = new D();
-    public static final D A = new D();
+    public static final Registry<Texture> textures = new Registry<>();
+    public static final Registry<Element> elements = new Registry<>();
 
-    public static void A() {
-        B.delete();
-        A.delete();
+    public static void delete() {
+        textures.delete();
+        elements.delete();
     }
 
     public static void draw(String text, float x, float y, float z, float width, float alignment) {
         GL2 gl2 = Startup.gl2;
-        ((Texture) B.B("charset")).bindTexture();
+        textures.get("charset").bindTexture();
 
         gl2.glEnable(GL_BLEND);
         gl2.glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

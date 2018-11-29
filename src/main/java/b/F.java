@@ -2,6 +2,7 @@ package b;
 
 import com.jogamp.opengl.GL2;
 import g.Renderable;
+import h.Element;
 import h.Text;
 import startup.Startup;
 
@@ -38,7 +39,7 @@ public class F implements Renderable {
     public void render() {
         GL2 var1 = Startup.gl2;
         this.F();
-        ((h.E) Text.A.B("monster")).C();
+        Text.elements.get("monster").enable();
         var1.glDisable(3553);
         var1.glEnable(3042);
         var1.glBlendFunc(770, 771);
@@ -52,7 +53,7 @@ public class F implements Renderable {
 
         var1.glEnable(3553);
         var1.glDisable(3042);
-        ((h.E) Text.A.B("monster")).B();
+        Text.elements.get("monster").disable();
     }
 
     private class _A {
@@ -108,7 +109,7 @@ public class F implements Renderable {
             var1.glTranslatef(this.I, this.f, this.E);
             var1.glRotatef(this.O, this.D, this.C, this.B);
             var1.glColor4f(1.0F, 1.0F, 1.0F, (float) Math.sin((double) (this.N / this.P) * 3.141592653589793D) * 0.5F);
-            ((h.E) Text.A.B("monster")).A(0);
+            Text.elements.get("monster").draw(0);
             var1.glPopMatrix();
         }
     }
